@@ -5,6 +5,120 @@
 <link rel="stylesheet" href="task.css">
 </head>
 <body>
-<h1>This is my first SCSS project!</h1>
+    <header class="header">
+        <div class="logo">Eatly</div>
+        <nav>
+          <ul>
+            <li><a href="#second-section">Programs</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </nav>
+        <button class="ss-button">SS</button>
+      </header>
+    
+      <div class="main-content">
+        <section class="first-section">
+            <div class="left-content">
+              <h2>Welcome to Eatly</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum tellus ut arcu tincidunt dapibus.</p>
+            </div>
+            <div class="right-content">
+              <img src="https://picsum.photos/200/300" alt="Eatly Image">
+            </div>
+          </section>
+          <div class="moving-logos">
+            <div class="logo-slide">
+              <img src="https://picsum.photos/200" alt="Logo 1">
+            </div>
+            <div class="logo-slide">
+              <img src="https://picsum.photos/200" alt="Logo 2">
+            </div>
+            <!-- Add more logo-slides as needed -->
+          </div>
+      
+          <section id="second-section" class="second-section">
+            <!-- Content for Section 2 goes here -->
+            <h2>Our Programmers</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</p>
+          </section>
+      </div>
+      <script>
+        window.addEventListener('scroll', function() {
+          const header = document.querySelector('.header');
+          const scrolled = window.scrollY > 0;
+          document.body.classList.toggle('scrolled', scrolled);
+        });
+      </script>
+      <script>
+        // Smooth scrolling
+        const links = document.querySelectorAll('a');
+      
+        for (const link of links) {
+          link.addEventListener('click', smoothScroll);
+        }
+      
+        function smoothScroll(event) {
+          event.preventDefault();
+          const targetId = event.currentTarget.getAttribute('href');
+          const targetPosition = document.querySelector(targetId).offsetTop;
+          const startPosition = window.pageYOffset;
+          const distance = targetPosition - startPosition;
+          const duration = 1000; // Adjust the duration (in milliseconds) as needed
+          let start = null;
+      
+          function animation(currentTime) {
+            if (start === null) start = currentTime;
+            const timeElapsed = currentTime - start;
+            const run = ease(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+          }
+      
+          function ease(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+          }
+      
+          requestAnimationFrame(animation);
+        }
+      </script>
+      <script>
+        // Your existing JavaScript code (as shown in the previous code)
+      
+        // JavaScript for moving logos carousel
+        const logoSlide = document.querySelector('.logo-slide');
+      
+        let translateValue = 0;
+        let interval;
+      
+        function moveLogos() {
+          interval = setInterval(() => {
+            translateValue -= 100;
+            logoSlide.style.transform = `translateX(${translateValue}px)`;
+      
+            // Reset to the beginning when reaching the end
+            if (translateValue <= -(logoSlide.offsetWidth - window.innerWidth)) {
+              translateValue = 0;
+              logoSlide.style.transform = `translateX(${translateValue}px)`;
+            }
+          }, 3000); // Adjust the time between transitions (in milliseconds) as needed
+      
+          // Pause the carousel when the user hovers over the logos
+          logoSlide.addEventListener('mouseover', () => {
+            clearInterval(interval);
+          });
+      
+          // Resume the carousel when the user leaves the logos
+          logoSlide.addEventListener('mouseout', () => {
+            moveLogos();
+          });
+        }
+      
+        moveLogos();
+      </script>
 </body>
 </html>

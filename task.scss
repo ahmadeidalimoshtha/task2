@@ -1,12 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #ffffff;
-  }
-  
-  h1 {
-    color: #000000;
-    font-size: 24px;
-  }
-  h1{
-    color: #441d1d;
-  }
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 10px 10%;
+  z-index: 999;
+  background-color: transparent; 
+  color: #fff;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s; 
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav {
+  flex: 1;
+  margin: 0 20px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  margin: 0 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+button.ss-button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+
+body.scrolled .header {
+  background-color: #ffffff; /* Change the background color to #ffffff when scrolled */
+  color: #333; /* Change the text color when scrolled */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow when scrolled */
+}
+
+.main-content {
+  background: linear-gradient(to right, #ff7b7b, #ffe3b9);
+  min-height: 100vh;
+}
+
+.first-section {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  padding: 130px 0;
+  color: #333;
+
+}
+
+.left-content {
+  padding: 0 20px;
+}
+
+.right-content {
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+    width: 300px;
+    height: 100%;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
+.moving-logos {
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #f9f9f9;
+}
+
+.logo-slide {
+  margin: 0 20px;
+  flex: 0 0 auto;
+}
+
+.logo-slide img {
+  max-width: 100px;
+  height: auto;
+}
+
+.second-section {
+  text-align: center;
+  padding: 60px 0;
+  background-color: #ddd;
+  color: #333;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
